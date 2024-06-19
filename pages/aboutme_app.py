@@ -32,7 +32,7 @@ with info_columns[1]:
 st.subheader('Contact Information')
 st.write("**Email:** rjtpolinario.chmsu@gmail.com")
 st.write("**Phone:** 09770817226")
-st.write("**Facebook:** [JRod John Polinario](https://www.facebook.com/johndoe)")
+st.write("**Facebook:** [Rod John Polinario](https://www.facebook.com/johndoe)")
 st.write("**Instagram:** [@withplayy](https://www.instagram.com/johndoe)")
 
 # Background (Left-aligned)
@@ -61,11 +61,11 @@ def load_image(file_path):
 image_files = ['image1.jpeg', 'image2.jpg', 'image3.jpeg', 'image4.jpg', 'image5.jpg']
 
 # Display images in a horizontal slider with reduced size and spacing
-with st.container():
-    for image_file in image_files:
-        personal_image = load_image(image_file)
-        if personal_image:
-            st.image(personal_image, width=300, caption=image_file, use_column_width=False)
+image_columns = st.columns(len(image_files))
+for col, image_file in zip(image_columns, image_files):
+    personal_image = load_image(image_file)
+    if personal_image:
+        col.image(personal_image, width=200, caption=image_file, use_column_width=False)
 
 # Footer
 st.write("by koalatech...")
