@@ -1,1 +1,5 @@
-cdd
+scikit-learn==1.4.2
+Pillow
+img2vec-pytorch
+st-pages
+nltk
