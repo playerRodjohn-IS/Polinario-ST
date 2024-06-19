@@ -6,7 +6,7 @@ import os
 st.set_page_config(layout="wide", page_title="Streamlit App Features Description")
 
 # Define the path to the images folder (adjust if needed)
-images_folder = os.path.join("pages", "img")
+images_folder = "."
 
 # Feature 1: Life Expectancy Prediction
 st.header('Feature 1: Life Expectancy Prediction')
@@ -15,8 +15,11 @@ This feature predicts life expectancy based on inputs such as schooling, BMI, an
 ''')
 # Display image for Life Expectancy Prediction feature
 life_expectancy_image_path = os.path.join(images_folder, "predictpic.png")
-life_expectancy_image = Image.open(life_expectancy_image_path)
-st.image(life_expectancy_image, caption='Life Expectancy Prediction', use_column_width=True)
+if os.path.exists(life_expectancy_image_path):
+    life_expectancy_image = Image.open(life_expectancy_image_path)
+    st.image(life_expectancy_image, caption='Life Expectancy Prediction', use_column_width=True)
+else:
+    st.error(f"File not found: {life_expectancy_image_path}")
 
 # Feature 2: Emotion Analyzer
 st.header('Feature 2: Emotion Analyzer')
@@ -25,8 +28,11 @@ The Emotion Analyzer feature analyzes emotions such as joy, sadness, and frustra
 ''')
 # Display image for Emotion Analyzer feature
 emotion_analyzer_image_path = os.path.join(images_folder, "sentimentpic.png")
-emotion_analyzer_image = Image.open(emotion_analyzer_image_path)
-st.image(emotion_analyzer_image, caption='Emotion Analyzer', use_column_width=True)
+if os.path.exists(emotion_analyzer_image_path):
+    emotion_analyzer_image = Image.open(emotion_analyzer_image_path)
+    st.image(emotion_analyzer_image, caption='Emotion Analyzer', use_column_width=True)
+else:
+    st.error(f"File not found: {emotion_analyzer_image_path}")
 
 # Feature 3: Image Classifications for Holidays
 st.header('Feature 3: Image Classifications for Holidays')
@@ -35,8 +41,11 @@ This feature provides image classification for five different holidays: Christma
 ''')
 # Display image for Image Classifications for Holidays feature
 holiday_classification_image_path = os.path.join(images_folder, "imageClasspic.png")
-holiday_classification_image = Image.open(holiday_classification_image_path)
-st.image(holiday_classification_image, caption='Holiday Image Classifications', use_column_width=True)
+if os.path.exists(holiday_classification_image_path):
+    holiday_classification_image = Image.open(holiday_classification_image_path)
+    st.image(holiday_classification_image, caption='Holiday Image Classifications', use_column_width=True)
+else:
+    st.error(f"File not found: {holiday_classification_image_path}")
 
 # Footer
 st.write("Explore these features to gain insights and enjoy interactive experiences with the Streamlit app!")
